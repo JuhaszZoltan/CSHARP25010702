@@ -29,3 +29,12 @@ foreach (var tehen in joltejelok)
 
 Console.WriteLine("6. feladat");
 Console.WriteLine($"{joltejelok.Count()} darab sort írtam az állományba");
+
+Console.WriteLine("7. feladat");
+Console.WriteLine("Kérem adja meg egy tehén azonosítóját!");
+string azon = Console.ReadLine();
+if (string.IsNullOrWhiteSpace(azon))
+    throw new Exception("nem írtál be semmit :(");
+
+int leszarmazottak = happyCows.Count(t => t.Id.StartsWith(azon) && t.Id != azon);
+Console.WriteLine($"A leszármazottak száma: {leszarmazottak}");
