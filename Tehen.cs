@@ -6,6 +6,13 @@ class Tehen : IEquatable<Tehen>
     public string Id { get; private set; }
     public int[] Mennyisegek { get; private set; }
 
+    private int HetiTej => Mennyisegek.Sum();
+
+    public int HetiAtlag =>
+        Mennyisegek.Count(x => x != 0) > 3
+        ? (int)Math.Round(HetiTej / (float)Mennyisegek.Count(x => x != 0))
+        : -1;
+
     public bool Equals(Tehen masik)
     {
         return masik != null && masik.Id == this.Id;

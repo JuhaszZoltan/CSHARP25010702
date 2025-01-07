@@ -20,3 +20,12 @@ while (!sr.EndOfStream)
 
 Console.WriteLine("3. feladat");
 Console.WriteLine($"Az állomány {happyCows.Count} tehén adatait tartalmazza.");
+
+var joltejelok = happyCows.Where(t => t.HetiAtlag != -1);
+
+using StreamWriter sw = new($"{PRJDIR}\\joltejelok.txt");
+foreach (var tehen in joltejelok)
+    sw.WriteLine($"{tehen.Id} {tehen.HetiAtlag}");
+
+Console.WriteLine("6. feladat");
+Console.WriteLine($"{joltejelok.Count()} darab sort írtam az állományba");
